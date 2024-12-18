@@ -1,4 +1,4 @@
-### /* Student Grade */
+/* Student Grade */
 
 def calculate_letter_gpa(avg):
     if avg >= 90: return "A", 4.0
