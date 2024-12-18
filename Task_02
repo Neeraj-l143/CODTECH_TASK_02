@@ -1,0 +1,24 @@
+### /* Student Grade */
+
+def calculate_letter_gpa(avg):
+    if avg >= 90: return "A", 4.0
+    if avg >= 80: return "B", 3.0
+    if avg >= 70: return "C", 2.0
+    if avg >= 60: return "D", 1.0
+    return "F", 0.0
+
+grades = {}
+while (subject := input("Enter subject (or 'done' to finish): ")) != "done":
+    try:
+        grade = float(input(f"Grade for {subject} (0-100): "))
+        if 0 <= grade <= 100: grades[subject] = grade
+        else: print("Grade must be between 0 and 100.")
+    except ValueError:
+        print("Invalid input. Enter a number.")
+
+if grades:
+    avg = sum(grades.values()) / len(grades)
+    letter, gpa = calculate_letter_gpa(avg)
+    print(f"\nGrades: {grades}\nAverage: {avg:.2f}\nLetter Grade: {letter}\nGPA: {gpa:.1f}")
+else:
+    print("No grades entered.")
